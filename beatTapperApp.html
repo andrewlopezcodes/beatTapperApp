@@ -5,17 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>beatTapperApp by andrewlopezcodes</title>
   <script src="paper-full.min.js"></script>
+  <link rel="stylesheet" href="beatTapperApp.css">
+  
   <script type="text/paperscript" canvas="myCanvas">
-    // Create a Paper.js Path to draw a line into it:
-    var path = new Path();
-    // Give the stroke a color
-    path.strokeColor = 'red';
-    var start = new Point(100, 100);
-    // Move to start and draw a line from there
-    path.moveTo(start);
-    // Note the plus operator on Point objects.
-    // PaperScript does that for us, and much more!
-    path.lineTo(start + [ 300, -50 ]);
+    
+    
+    function onKeyDown(event) {
+      var maxPoint = new Point(view.size.width, view.size.height);
+      var randomPoint = Point.random();
+      var point = maxPoint * randomPoint;
+      console.log(point);
+
+
+      
+      new Path.Circle(point, 10).fillColor = "black";
+    }
+     
+         
+     
+      
+    
+
+
+    
+
   </script>
 </head>
 <body>
