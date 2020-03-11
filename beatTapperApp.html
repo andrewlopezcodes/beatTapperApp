@@ -9,20 +9,26 @@
   
   <script type="text/paperscript" canvas="myCanvas">
     
-    
+    var circles =[];
     function onKeyDown(event) {
+      
       var maxPoint = new Point(view.size.width, view.size.height);
       var randomPoint = Point.random();
-      var point = maxPoint * randomPoint;
-      console.log(point);
-
-
-      
-      new Path.Circle(point, 10).fillColor = "black";
+      var randomCoordinate = maxPoint * randomPoint;
+      console.log("This is the circle\'s radom coordinate " + randomCoordinate);
+      var newCircle = new Path.Circle(randomCoordinate, 10);
+      newCircle.fillColor = "red";
+      circles.push(newCircle);
     }
-     
-         
-     
+      
+    
+
+
+    function onFrame(event){
+      for(var a = 0; a < circles.length; a++){
+        circles[a].fillColor.hue += 1;
+      };
+    }
       
     
 
